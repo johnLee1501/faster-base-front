@@ -1,0 +1,9 @@
+.btn-borrar{
+    color: rgba(255, 0, 0, 0.87);
+    font-size: 20px;
+    margin-left: 15px;
+  }
+      
+  .btn-borrar:hover{
+    color:red;
+  }

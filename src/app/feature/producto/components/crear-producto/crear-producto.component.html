@@ -1,0 +1,23 @@
+<div class="container mt-4 col-sm-6">
+  <div class="card bg-gray text-black">
+    <div class="card-body">
+      <form [formGroup]="productoForm" (ngSubmit)="crear()">
+        <div class="mb-3">
+          <label for="codigoProducto" class="form-label">Código</label>
+          <input validar validacionInicial formControlName="codigoProducto" type="text" placeholder="Ingrese el código del producto"
+            class="form-control" id="codigoProducto">
+        </div>
+        <div class="mb-3">
+          <label for="nombre" class="form-label">Nombre</label>
+          <input validar validacionInicial (input)="validarAlfanumerico($event,productoForm.get('nombre'))" formControlName="nombre"
+            type="text" placeholder="Ingrese el nombre del producto" class="form-control" id="nombre">
+        </div>
+        <div class="mb-3">
+          <label for="valorProducto" class="form-label">Valor</label>
+          <input validar validacionInicial formControlName="valorProducto" type="number" placeholder="Ingrese el precio del producto" class="form-control" id="valorProducto">
+        </div>
+        <button type="submit" id="btnCrearProducto" [disabled]="!productoForm.valid" class="btn btn-primary">Registrar Producto</button>
+      </form>
+    </div>
+  </div>
+</div>

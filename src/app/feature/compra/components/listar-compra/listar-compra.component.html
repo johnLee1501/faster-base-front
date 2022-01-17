@@ -1,0 +1,42 @@
+<div class="container mt-4 col-sm-10">
+    <div class="input-group mb-4 justify-content-end">
+        <input class="busqueda" type="text" #identificador id="identificador" placeholder="  Numero Identificación"
+            aria-label="Recipient's username" aria-describedby="button-addon2">
+        <button class="btn btn-outline-primary" (click)="consultarComprasPorIdUsuario(identificador.value)"
+            type="button" id="button-addon2">Buscar</button>
+    </div>
+    <div class="card bg-gray text-black">
+        <div class="card-body">
+            <table class="table table-striped table-hover">
+                <thead>
+                    <tr>
+                        <th scope="col">Documento Usuario </th>
+                        <th scope="col">Dirección</th>
+                        <th scope="col">Ciudad</th>
+                        <th scope="col">Tipo de Usuario</th>
+                        <th scope="col">Codigo Producto</th>
+                        <th scope="col">Nombre Producto</th>
+                        <th scope="col">Valor Producto</th>
+                        <th scope="col">Fecha Compra</th>
+                        <th scope="col">Fecha Entrega</th>
+                        <th scope="col">Acción</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let compra of compras">
+                        <td>{{compra.identificadorUsuario}}</td>
+                        <td>{{compra.direccion}}</td>
+                        <td>{{compra.ciudad}}</td>
+                        <td>{{compra.tipoUsuario}}</td>
+                        <td>{{compra.codigoProducto}}</td>
+                        <td>{{compra.nombreProducto}}</td>
+                        <td>{{compra.valorProducto}}</td>
+                        <td>{{compra.fechaCompra}}</td>
+                        <td>{{compra.fechaEntrega}}</td>
+                        <td><i id="borrar-{{compra.codigoProducto}}" class="bi bi-trash-fill btn-borrar" (click)="eliminarCompra(compra)"></i></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,22 @@
+<div class="container-fluid">
+  <ngb-toast *ngFor="let toast of toastService.toasts" header="Mensaje" [class]="toast.classname" [autohide]="false"
+    [delay]="toast.delay || 5000" (hide)="toastService.remove(toast)">
+
+    <ng-template [ngIf]="toast.classname=='bg-danger text-light'" [ngIfElse]="text">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="#fff" width="24" height="24" viewBox="0 0 24 24">
+        <path
+          d="M10.872 6.831l1.695 3.904 3.654-1.561-1.79 3.426 3.333.954-3.417 1.338 2.231 4.196-4.773-2.582-2.869 2.287.413-3.004-3.792-.726 2.93-1.74-1.885-2.512 3.427.646.843-4.626zm-.786-6.831l-1.665 9.119-6.512-1.228 3.639 4.851-5.548 3.294 7.108 1.361-.834 6.076 5.742-4.577 9.438 5.104-4.288-8.064 6.834-2.677-6.661-1.907 3.25-6.22-6.98 2.982-3.523-8.114z" />
+      </svg>
+    </ng-template>
+    <ng-template #text>
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check-square"
+        viewBox="0 0 16 16">
+        <path
+          d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z" />
+        <path
+          d="M10.97 4.97a.75.75 0 0 1 1.071 1.05l-3.992 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.235.235 0 0 1 .02-.022z" />
+      </svg>
+    </ng-template>
+    <a id="toast" style="margin-left:10px ;">{{toast.textOrTpl }}</a>
+  </ngb-toast>
+</div>

@@ -1,0 +1,48 @@
+<div class="container mt-4 col-sm-6">
+  <div class="card bg-gray text-black">
+
+    <div class="card-body">
+
+      <form [formGroup]="compraForm" (ngSubmit)="crear()">
+        <div class="mb-3">
+          <label for="identificadorUsuario" class="form-label">Número de Identificación</label>
+          <input validar id="identificadorUsuario" formControlName="identificadorUsuario" type="text" placeholder="Numero de identificación" class="form-control"
+            id="identificadorUsuario">
+        </div>
+        <div class="mb-3">
+          <label for="direccion" class="form-label">Dirección de Entrega</label>
+          <input validar id="direccion" formControlName="direccion" type="text" placeholder="Dirección" class="form-control" id="direccion">
+        </div>
+        <div class="mb-3">
+          <label for="ciudad" class="form-label">Ciudad</label>
+          <select validar id="ciudad" formControlName="ciudad" class="form-control select" >
+            <option value="" selected disabled >Seleccione una ciudad de destino</option>
+            <option  *ngFor="let ciudad of ciudades|async"  [ngValue]="ciudad.nombre">
+              {{ciudad.nombre}}
+            </option>
+          </select>
+        </div>
+        <div class="mb-3">
+          <label for="productoId" class="form-label">Producto</label>
+          <select validar id="productoId" formControlName="productoId" class="form-control select">
+            <option value="" selected disabled >Seleccione un producto</option>
+            <option *ngFor="let producto of productos| async" [ngValue]="producto.id">
+              {{producto.nombre}}
+            </option>
+          </select>
+        </div>
+        <div class="mb-3">
+          <label for="tipoUsuario" class="form-label">Tipo de Usuario</label>
+          <select validar id="tipoUsuario" formControlName="tipoUsuario" class="form-control select">
+            <option value="" selected disabled >Seleccione un tipo de usuario</option>
+            <option *ngFor="let tipoUsuario of tiposUsuario" [ngValue]="tipoUsuario.id">
+              {{tipoUsuario.tipo}}
+            </option>
+          </select>
+        </div>
+        <button type="submit" id="btnCrearCompra" [disabled]="!compraForm.valid" class="btn btn-primary">Registrar Compra</button>
+      </form>
+
+    </div>
+  </div>
+</div>
